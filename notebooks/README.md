@@ -280,43 +280,6 @@ Notebook 5 and notebook 6 depend on already generated CSVs, manifests, and cache
 
 For review, it is usually enough to provide cached logits and final CSV tables rather than requiring a full image-level rerun.
 
-## Files that should not be committed to GitHub
-
-Do not commit:
-
-```text
-ImageNet image folders
-ImageNet-C image folders
-cached logits
-source-bank logits
-model checkpoints
-large .pt files
-large .pth files
-large .ckpt files
-large .npz files
-large .npy files
-large .tar files
-large .zip files
-```
-
-These artifacts should be provided through an external artifact link such as Zenodo, Google Drive, Hugging Face Dataset, or another approved storage location.
-
-## Files that can be committed to GitHub
-
-It is safe to commit:
-
-```text
-clean notebooks with outputs cleared
-README files
-configuration JSON files
-small CSV result tables
-small manifest CSV files
-selected paper figures
-source code
-scripts
-tests
-```
-
 ## Label-use note
 
 Deployable SASC/Frozen V3 fitting does not use target labels.
