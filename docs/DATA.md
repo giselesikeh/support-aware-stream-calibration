@@ -25,4 +25,3 @@ Required derived CSVs for the lightweight SASC script:
 
 Required columns are documented in the main `README.md`.
 
-For review submission, include only small tables and figures when allowed by the venue. Do not include raw datasets, `.pt` checkpoints, or large `.npz`/`.pt` logits.
