@@ -50,6 +50,32 @@ This repository does **not** redistribute ImageNet, ImageNet-100, ImageNet-C, tr
 
 Small final CSV tables and paper figures may be included in `results/` and `figures/` if allowed by the target venue.
 
+## Cached artifact availability
+
+Large cached artifacts are not stored directly in this GitHub repository.
+
+The cached-logit workflow requires external artifacts such as cached target logits, source-bank descriptors, target-stream descriptors, source temperature summaries, and manifests.
+
+For review and public release, these artifacts will be provided through an external artifact link:
+
+```text
+External cached artifacts: https://drive.google.com/drive/folders/1w9WKsWdtmtO0BocCXexKKuSRB0lmLr3h
+```
+
+The external artifact package is expected to contain:
+
+```text
+cached target logits and labels
+source-bank descriptor tables
+target-stream descriptor tables
+source temperature CSV files
+target logits manifests
+small final result CSV files
+```
+
+The GitHub repository contains the code, configurations, cleaned notebooks, scripts, tests, documentation, selected figures, and small result/manifest files only.
+
+
 ## Quick setup
 
 ```bash
