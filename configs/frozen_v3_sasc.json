@@ -1,0 +1,22 @@
+{
+  "method": "support_aware_stream_calibration_frozen_v3",
+  "n_entropy_bins": 8,
+  "support_margin_std": 0.25,
+  "t_max_absolute": 1.45,
+  "t_max_additive": 0.35,
+  "max_extrapolation_slope": 0.75,
+  "lower_fallback_to_source_ts": true,
+  "fit_data": "source_bank_only",
+  "target_labels_used_for_fit": false,
+  "target_metrics_used_for_hyperparameter_selection": false,
+  "deployment_inputs": [
+    "source temperature",
+    "source-bank entropy-temperature pairs",
+    "unlabeled target stream entropy"
+  ],
+  "support_regions": [
+    "inside_support",
+    "lower_fallback",
+    "high_extrapolation"
+  ]
+}

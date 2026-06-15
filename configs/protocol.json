@@ -1,0 +1,40 @@
+{
+  "project": "Support-Aware Stream Calibration under Corruption Shift",
+  "datasets": {
+    "source": "ImageNet-100 clean source split",
+    "target": "ImageNet-C filtered to the same 100 classes"
+  },
+  "backbones": ["resnet18", "resnet50", "vit_b_16"],
+  "seeds": [1, 2, 3],
+  "corruptions": [
+    "brightness",
+    "defocus_blur",
+    "glass_blur",
+    "motion_blur",
+    "zoom_blur",
+    "gaussian_noise",
+    "shot_noise",
+    "impulse_noise",
+    "fog",
+    "snow"
+  ],
+  "severities": [1, 2, 3, 4, 5],
+  "metrics": [
+    "accuracy",
+    "mean_confidence",
+    "signed_gap",
+    "abs_signed_gap",
+    "nll",
+    "brier",
+    "ece15",
+    "aece15"
+  ],
+  "final_notebooks": [
+    "01_vit_training_logits_and_source_bank.ipynb",
+    "02_vit_sasc_analysis_and_diagnostics.ipynb",
+    "03_resnet_baseline_protocol_rerun.ipynb",
+    "04_resnet_sasc_analysis_and_diagnostics.ipynb",
+    "05_close_baselines_and_method_comparison.ipynb",
+    "06_extra_diagnostics_and_final_exports.ipynb"
+  ]
+}

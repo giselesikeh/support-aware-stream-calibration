@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript."
+title: "Support-Aware Stream Calibration under Corruption Shift"
+authors:
+  - family-names: "Wiykiynyuy"
+    given-names: "Sikeh Gisele"
+year: 2026
+repository-code: "https://github.com/giselesikeh/support-aware-stream-calibration"
+license: "MIT"
