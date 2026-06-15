@@ -43,7 +43,6 @@ support-aware-stream-calibration/
 ├── manifests/               # Run manifests and artifact metadata
 └── tests/                   # Lightweight checks for core utilities
 ```
-
 ## Data policy
 
 This repository does **not** redistribute ImageNet, ImageNet-100, ImageNet-C, trained checkpoints, or large cached logits. Reviewers should obtain the datasets from their official sources and place them according to `docs/DATA.md`.
@@ -93,6 +92,29 @@ python -m venv .venv
 pip install -r requirements.txt
 pip install -e .
 ```
+
+## Quick sanity tests
+
+After installing the repository requirements, run the test suite from the repository root:
+
+```bash
+pytest
+```
+
+These tests check the core SASC/Frozen V3 behavior, including:
+
+```text
+positive temperature predictions
+support-region labels
+lower-fallback behavior
+high-entropy extrapolation behavior
+temperature cap behavior
+basic argmax invariance under positive scalar temperature scaling
+```
+
+The tests are intended as a lightweight sanity check for the reusable code in `src/sasc/`. They do not require ImageNet, ImageNet-C, cached logits, or model checkpoints.
+
+
 
 ## Minimal SASC run from cached logits
 
