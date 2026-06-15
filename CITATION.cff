@@ -1,9 +1,43 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the associated manuscript."
+title: "Support-Aware Stream Calibration under Corruption Shift"
+message: "If you use this repository or code, please cite it using the metadata from this file."
+type: software
+
+authors:
+
+* family-names: "Wiykiynyuy"
+  given-names: "Sikeh Gisele"
+
+repository-code: "https://github.com/giselesikeh/support-aware-stream-calibration"
+url: "https://github.com/giselesikeh/support-aware-stream-calibration"
+version: "v1.0-paper-submission"
+date-released: "2026-06-16"
+license: "MIT"
+
+abstract: >
+This repository contains the paper artifact for Support-Aware Stream
+Calibration under Corruption Shift. It includes source code, frozen
+configuration files, cleaned notebooks, scripts, tests, documentation,
+and small result/manifest files for reproducing the SASC/Frozen V3
+calibration workflow from cached logits.
+
+keywords:
+
+* calibration
+* distribution shift
+* corruption robustness
+* temperature scaling
+* uncertainty estimation
+* computer vision
+* ImageNet-C
+* support-aware calibration
+
+preferred-citation:
+type: article
 title: "Support-Aware Stream Calibration under Corruption Shift"
 authors:
-  - family-names: "Wiykiynyuy"
-    given-names: "Sikeh Gisele"
+- family-names: "Wiykiynyuy"
+given-names: "Sikeh Gisele"
 year: 2026
-repository-code: "https://github.com/giselesikeh/support-aware-stream-calibration"
-license: "MIT"
+notes: "Manuscript under preparation/submission."
+
