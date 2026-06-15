@@ -1,6 +1,6 @@
 # Final notebook index
 
-Only the cleaned final notebooks should be committed here. Do not commit old attempts, broken Colab tests, duplicate versions, or notebooks with large outputs.
+
 
 Recommended final names:
 
@@ -13,9 +13,4 @@ Recommended final names:
 | `05_close_baselines_and_method_comparison.ipynb` | Close-baseline comparison: UTS-style, SBTS-style, Safe V2, Frozen V3/SASC, bootstrap CIs. |
 | `06_extra_diagnostics_and_final_exports.ipynb` | Final supervisor-feedback diagnostics: paired bootstrap, support decomposition, source NLL curves, entropy confound checks, export manifests. |
 
-Before pushing notebooks:
 
-1. Clear large cell outputs.
-2. Remove personal Google Drive paths where possible, or move them into config variables.
-3. Ensure notebooks run top-to-bottom or clearly state which cached files are required.
-4. Keep final CSVs and figures separate from raw data and checkpoints.
