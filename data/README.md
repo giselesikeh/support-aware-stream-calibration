@@ -2,35 +2,108 @@
 
 This directory is intentionally kept empty in the public repository.
 
-The experiments in this paper use **ImageNet-100** as the clean source distribution and **ImageNet-C** as the corrupted target distribution. Because ImageNet and ImageNet-C are large datasets with their own distribution terms, the image files are not committed to this repository.
+The experiments in this paper use **ImageNet-100** as the clean source distribution and **ImageNet-C** as the corrupted target distribution. Because these datasets are large and have their own distribution terms, the image files are not committed to this repository.
 
-## Datasets
+## Datasets used
 
-### ImageNet / ILSVRC2012
+### 1. ImageNet-100
 
-The clean source data is based on the ImageNet ILSVRC2012 classification dataset.
+The clean source dataset is **ImageNet-100**, downloaded from Kaggle.
 
-Users should obtain access through the official ImageNet download page or another official ImageNet access route:
+In the notebooks, the dataset was downloaded using the Kaggle dataset `ambityga/imagenet100`.
 
-* Official ImageNet download page: https://image-net.org/download.php
-* ILSVRC2012 download page: https://image-net.org/challenges/LSVRC/2012/2012-downloads.php
+```python
+# Upload kaggle.json first, then run:
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!chmod 600 ~/.kaggle/kaggle.json
 
-In this work, we use a 100-class subset of ImageNet, referred to as **ImageNet-100**. The selected class list and class-to-index mapping are saved by the notebooks into the metadata and manifest outputs.
+# Download ImageNet-100
+!mkdir -p /content/data
+!kaggle datasets download -d ambityga/imagenet100 -p /content/data --unzip
+```
 
-### ImageNet-C
+In some runs, the already-downloaded archive was copied from Google Drive and extracted in Colab:
 
-The corrupted target data is based on ImageNet-C, a benchmark for evaluating robustness to common image corruptions.
+```python
+from google.colab import drive
+drive.mount('/content/drive')
 
-Users can obtain ImageNet-C from the official public sources:
+!cp "/content/drive/MyDrive/imagenet 100/archive (1).zip" /content/
+%cd /content
+!unzip -q "archive (1).zip"
+```
 
-* ImageNet-C Zenodo record: https://zenodo.org/records/2235448
-* Robustness benchmark repository: https://github.com/hendrycks/robustness
+The expected extracted clean dataset structure is:
 
-This work filters ImageNet-C to the same 100 ImageNet classes used in the clean source data.
+```text
+imagenet100/
+├── train/
+└── val/
+```
+
+The notebooks then use a fixed 100-class subset and save the class list, class-to-index mapping, and split metadata into the generated metadata/manifests.
+
+### 2. ImageNet-C
+
+The corrupted target dataset is **ImageNet-C**, downloaded from Zenodo.
+
+In the notebooks, the ImageNet-C tar files were downloaded into Google Drive using:
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+
+!mkdir -p "/content/drive/MyDrive/imagenet-c"
+%cd /content/drive/MyDrive/imagenet-c
+
+!wget -O noise.tar   "https://zenodo.org/records/2235448/files/noise.tar"
+!wget -O blur.tar    "https://zenodo.org/records/2235448/files/blur.tar"
+!wget -O weather.tar "https://zenodo.org/records/2235448/files/weather.tar"
+```
+
+To check the downloaded files:
+
+```python
+!ls -lh "/content/drive/MyDrive/imagenet-c"
+```
+
+Expected approximate file sizes:
+
+```text
+noise.tar    ≈ 22.57 GB
+blur.tar     ≈ 7.11 GB
+weather.tar  ≈ 12.80 GB
+```
+
+The notebooks extract the tar files and then filter ImageNet-C to the same 100 classes used in ImageNet-100.
+
+## Corruptions used in the paper
+
+The paper uses the following 10 ImageNet-C corruption families:
+
+```text
+brightness
+defocus_blur
+glass_blur
+motion_blur
+zoom_blur
+gaussian_noise
+shot_noise
+impulse_noise
+fog
+snow
+```
+
+Each corruption is evaluated at severities:
+
+```text
+1, 2, 3, 4, 5
+```
 
 ## Expected local layout
 
-The notebooks expect the user to configure local dataset paths. A typical local layout is:
+A typical local or Colab layout after preparing the data is:
 
 ```text
 data/
@@ -55,7 +128,7 @@ data/
     └── snow/
 ```
 
-The original experiments were run in Google Colab with Google Drive paths. Before rerunning locally, update the dataset roots in the notebook configuration cells or in the relevant config files.
+The original experiments were run in Google Colab using Google Drive paths. Before rerunning locally or in another environment, update the dataset root paths in the notebook configuration cells or in the relevant config files.
 
 ## Do not commit large or restricted files
 
@@ -71,9 +144,10 @@ model checkpoints
 .zip / .tar / .tar.gz archives
 ```
 
-These files are intentionally ignored by `.gitignore`.
+These files are intentionally excluded from the public repository and should remain ignored by `.gitignore`.
 
 ## Reproducibility note
 
-The public repository provides the code, configuration files, documentation, selected figures, and notebook workflow needed to reproduce the method and analysis. The datasets must be downloaded separately by users who have the appropriate access rights.
+This repository provides the code, configurations, documentation, selected figures, and notebook workflow needed to reproduce the method and analysis. The datasets must be downloaded separately by users with the appropriate access rights and sufficient storage.
+
 
